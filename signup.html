@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://img.freepik.com/free-photo/clipboard-stethoscope_23-2148519763.jpg?t=st=1733379338~exp=1733382938~hmac=62ce788ee58d8f2142b0856c17d8e22af653e972357ec807e1f26c2c9a95c138&w=1380');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            margin: 100;
+        }
+        .container {
+            width: 500px;
+            padding: 80px;
+            background: #f8f6f6;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0);
+            border-radius: 50px;
+            text-align: center;
+        }
+        .container input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .container button {
+            width: 90%;
+            padding: 10px;
+            background-color: #17a385;
+            border: none;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .container button:hover {
+            background-color: #17a385;
+        }
+        .link {
+            margin-top: 15px;
+            display: block;
+            color: #007BFF;
+            text-decoration: none;
+        }
+        .link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>MedSchedule</h2>
+        <form id="signupForm">
+            <input type="text" id="newUsername" placeholder="Create Username" required>
+            <input type="password" id="newPassword" placeholder="Create Password" required>
+            <button type="submit">Signup</button>
+        </form>
+        <a href="login.html" class="link">Already have an account? Login</a>
+    </div>
+    <script>
+        document.getElementById("signupForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            // Save new user credentials (for demo purposes; not secure for production)
+            const username = document.getElementById("newUsername").value;
+            const password = document.getElementById("newPassword").value;
+
+            localStorage.setItem("username", username);
+            localStorage.setItem("password", password);
+
+            alert("Signup successful! You can now log in.");
+            window.location.href = "login.html"; // Redirect to login page
+        });
+    </script>
+</body>
+</html>
