@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedSchedule - Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f6f8;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #2b6777;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        header::before {
+            content: "🩺";
+            font-size: 4rem;
+            position: absolute;
+            left: 50%;
+            top: 65%;
+            transform: translate(-50%, -50%);
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        nav {
+            background-color: #4b7c8c;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        nav h3 {
+            color: white;
+            font-weight: 600;
+        }
+
+        nav .logout-btn {
+            background-color: #c0392b;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        nav .logout-btn:hover {
+            background-color: #a93226;
+        }
+
+        .container {
+            padding: 30px;
+        }
+
+        .section {
+            background-color: white;
+            padding: 25px;
+            margin-bottom: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+        }
+
+        .section h2 {
+            color: #2b6777;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .section p {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .section i {
+            margin-right: 10px;
+        }
+
+        .search-bar {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .search-bar input {
+            padding: 12px 20px;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 85%;
+            transition: border-color 0.3s ease;
+        }
+
+        .search-bar input:focus {
+            border-color: #4b7c8c;
+            outline: none;
+        }
+
+        .search-bar button {
+            padding: 12px 20px;
+            background-color: #4b7c8c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .search-bar button:hover {
+            background-color: #3a6c7d;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table th,
+        table td {
+            padding: 12px;
+            border: 1px solid #ccc;
+            text-align: left;
+            font-size: 1rem;
+        }
+
+        table th {
+            background-color: #f4f6f8;
+            font-weight: 600;
+        }
+
+        .no-data {
+            text-align: center;
+            color: #888;
+            font-style: italic;
+        }
+
+        /* Graphics for doctors */
+        .doctor-emoji {
+            font-size: 2rem;
+            margin-right: 10px;
+        }
+
+        .doctor-emoji-1 {
+            color: #e74c3c;
+        }
+
+        .doctor-emoji-2 {
+            color: #f39c12;
+        }
+
+        .doctor-emoji-3 {
+            color: #2ecc71;
+        }
+
+        .doctor-emoji-4 {
+            color: #3498db;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .search-bar {
+                flex-direction: column;
+            }
+
+            .search-bar input {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+
+            .search-bar button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Welcome to MedSchedule</h1>
+        <p> Your Health, Our Priority </p>
+    </header>
+
+    <nav>
+        <h3>User Dashboard</h3>
+        <a href="logout.html" class="logout-btn">Logout</a>
+    </nav>
+
+    <div class="container">
+        <!-- Personal Information Section -->
+        <div class="section">
+            <h2>Personal Information <i class="fas fa-user"></i></h2>
+            <p><strong>Full Name:</strong> <span id="fullName">Not provided</span></p>
+            <p><strong>Date of Birth:</strong> <span id="dob">Not provided</span></p>
+            <p><strong>Gender:</strong> <span id="gender">Not provided</span></p>
+            <p><strong>Contact Number:</strong> <span id="contactNumber">Not provided</span></p>
+            <p><strong>Address:</strong> <span id="address">Not provided</span></p>
+        </div>
+
+        <!-- Doctor Search Section -->
+        <div class="section">
+            <h2>Search Doctors <i class="fas fa-search"></i></h2>
+            <div class="search-bar">
+                <input type="text" id="symptom" placeholder="Enter symptom (e.g., fever, rash)" />
+                <button onclick="searchDoctors()">Search</button>
+            </div>
+            <div id="doctor-results">
+                <!-- Results will be displayed here -->
+            </div>
+        </div>
+
+        <!-- Doctor Details Table -->
+        <div class="section">
+            <h2>Doctor Details <i class="fas fa-user-md"></i></h2>
+            <div class="search-bar">
+                <input type="text" id="searchDoctor" placeholder="Search doctors by name or specialization"
+                    onkeyup="filterTable()" />
+            </div>
+            <table id="doctorTable">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Specialization</th>
+                        <th>Area</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="doctor-emoji doctor-emoji-1">💉</span> Dr. Rajiva Gupta</td>
+                        <td>Physician</td>
+                        <td>Dlf Phase IV Gurgaon</td>
+                    </tr>
+                    <tr>
+                        <td><span class="doctor-emoji doctor-emoji-2">💉</span> Dr. Anil meheta</td>
+                        <td>Physician</td>
+                        <td>Cure Well Clinic, Shaikh Sarai</td>
+                    </tr>
+                    <tr>
+                        <td><span class="doctor-emoji doctor-emoji-3">💉</span> Dr. Pratima Verma</td>
+                        <td>Physician</td>
+                        <td>East Of Kailash, Delhi</td>
+                    </tr>
+                    <tr>
+                        <td><span class="doctor-emoji doctor-emoji-4">💉</span> Dr. Col V.C Goyal</td>
+                        <td>Physician</td>
+                        <td>Colonel Goyal Clinic Indrapuram Ghaziabad</td>
+                    </tr>
+                    <tr>
+                        <td><span class="doctor-emoji doctor-emoji-4">💉</span> Dr. Ashok Grover</td>
+                        <td>Physician</td>
+                        <td>Max Super Speciality Hospital Ghaziabad</td>
+                    </tr>
+                    <tr>
+                        <td><span class="doctor-emoji doctor-emoji-4">💉</span> Dr. Mahesh Mittal</td>
+                        <td>Physician</td>
+                        <td>Modi Nagar Modi Complex 17 K.N</td>
+                    </tr>
+                    <tr>
+                        <td><span class="doctor-emoji doctor-emoji-4">👩🏻‍⚕️</span> Dr. Lipy Gupta</td>
+                        <td>Dermatologist</td>
+                        <td>S-34 Green Park Family Medicine Clinic</td>
+                    </tr>
+                    <tr>
+                        <td><span class="doctor-emoji doctor-emoji-4">👩🏻‍⚕️</span> Dr. Ranjan Upadhyay</td>
+                        <td>Dermatologist</td>
+                        <td>Vasant Kunj Derma Skin & Lazer Clinic</td>
+                    </tr>
+                    <tr>
+                        <td><span class="doctor-emoji doctor-emoji-4">👩🏻‍⚕️</span> Dr. Bharti Verma</td>
+                        <td>Dermatologist</td>
+                        <td>1139/1, Sec-3 Vasundhra Ghaziabad</td>
+                    </tr>
+                    <tr>
+                        <td><span class="doctor-emoji doctor-emoji-4">❤️</span> Dr. Abhishek Singh</td>
+                        <td>Cardiologist</td>
+                        <td>Manipal Hospital Ghaziabad</td>
+                    </tr>
+                    <tr>
+                        <td><span class="doctor-emoji doctor-emoji-4">❤️</span> Dr. Amit Mittal</td>
+                        <td>Cardiologist</td>
+                        <td>V-Care Heart Center Ghaziabad</td>
+                    </tr>
+                    <tr>
+                        <td><span class="doctor-emoji doctor-emoji-4">❤️</span> Dr. Rajiv Mehrota</td>
+                        <td>Cardiologist</td>
+                        <td>Max Super Speciality Vaishali</td>
+                    </tr>
+                    <tr>
+                        <td><span class="doctor-emoji doctor-emoji-4">🧠</span> Dr. Atul Prasad</td>
+                        <td>Neurologist</td>
+                        <td>BLK-Max Super Speciality Hospital</td>
+                    </tr>
+                    <tr>
+                        <td><span class="doctor-emoji doctor-emoji-4">🧠</span> Dr. Cs Narayan</td>
+                        <td>Neurologist</td>
+                        <td>Manipal Hospital Dwarka Sector-6</td>
+                    </tr>
+                    <tr>
+                        <td><span class="doctor-emoji doctor-emoji-4">🧠</span> Dr. Aditya Gupta</td>
+                        <td>Neurologist</td>
+                        <td>Yashodha Super Speciality Ghaziabad</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        // Sample data for doctors
+        const doctors = [
+            { name: "Dr. Rajiva Gupta", specialization: "Physician", symptoms: ["cough","cold","nausia","fever","fatigueness"], area: "Dlf Phase IV Gurgaon" },
+            { name: "Dr. Anil meheta", specialization: "Physician", symptoms: ["cough","cold","nausia","fever","fatigueness"], area: "Cure Well Clinic, Shaikh Sarai" },
+            { name: "Dr. Pratima Verma", specialization: "Physician", symptoms: ["cough","cold","nausia","fever","fatigueness"], area: "East Of Kailash, Delhi" },
+            { name: "Dr. Col V.C Goyal", specialization: "Physician", symptoms: ["cough","cold","nausia","fever","fatigueness"], area: "Colonel Goyal Clinic Indrapuram Ghaziabad" },
+            { name: "Dr. Ashok Grover", specialization: "Physician", symptoms: ["cough","cold","nausia","fever","fatigueness"], area: "Max Super Speciality Hospital Ghaziabad" },
+            { name: "Dr. Mahesh Mittal", specialization: "Physician", symptoms: ["cough","cold","nausia","fever","fatigueness"], area: "Modi Nagar Modi Complex 17 K.N" },
+            { name: "Dr. Lipy Gupta", specialization: "Dermatologist", symptoms: ["acne","rash","hairloss","eczema","skin cancer","wrinkles","skin allergies"], area: "S-34 Green Park Family Medicine Clinic" },
+            { name: "Dr. Ranjan Upadhyay", specialization: "Dermatologist", symptoms: ["acne","rash","hairloss","eczema","skin cancer","wrinkles","skin allergies"], area: "Vasant Kunj Derma Skin & Lazer Clinic" },
+            { name: "Dr. Bharti Verma", specialization: "Dermatologist", symptoms: ["acne","rash","hairloss","eczema","skin cancer","wrinkles","skin allergies"], area: "1139/1, Sec-3 Vasundhra Ghaziabad" },
+            { name: "Dr. Abhishek Singh", specialization: "Cardiologist", symptoms: ["chest pain","high blood pressure","valve problems","heart attack","arrhythmies"], area: "Manipal Hospital Ghaziabad" },
+            { name: "Dr. Amit Mittal", specialization: "Cardiologist", symptoms: ["chest pain","high blood pressure","valve problems","heart attack","arrhythmies"], area: "V-Care Heart Center Ghaziabad" },
+            { name: "Dr. Rajiv Mehroda", specialization: "Cardiologist", symptoms: ["chest pain","high blood pressure","valve problems","heart attack","arrhythmies"], area: "Max Super Speciality Vaishali" },
+            { name: "Dr. Atul Prasad", specialization: "Neurologist", symptoms: ["headache","migrane","sleep disorder","brain tumor","stroke","epilepsy","memory loss"], area: "BLK-Max Super Speciality Hospital" },
+            { name: "Dr. C.S Narayanan", specialization: "Neurologist", symptoms: ["headache","migrane","sleep disorder","brain tumor","stroke","epilepsy","memory loss"], area: "Manipal Hospital Dwarka Sector-6" },
+            { name: "Dr. Aditya Gupta", specialization: "Neurologist", symptoms: ["headache","migrane","sleep disorder","brain tumor","stroke","epilepsy","memory loss"], area: "Yashodha Super Speciality Ghaziabad" },
+        ];
+
+        // Function to search doctors by symptoms
+        function searchDoctors() {
+            const symptom = document.getElementById("symptom").value.toLowerCase();
+            const results = doctors.filter(doctor =>
+                doctor.symptoms.some(symptomMatch => symptomMatch.includes(symptom))
+            );
+
+            const resultsContainer = document.getElementById("doctor-results");
+            resultsContainer.innerHTML = results.length
+                ? results.map(doctor => `<p>${doctor.name} (${doctor.specialization}) - ${doctor.area}</p>`).join("")
+                : "<p class='no-data'>No doctors found for this symptom.</p>";
+        }
+
+        // Function to filter the doctor table
+        function filterTable() {
+            const query = document.getElementById("searchDoctor").value.toLowerCase();
+            const rows = document.querySelectorAll("#doctorTable tbody tr");
+
+            rows.forEach(row => {
+                const name = row.cells[0].innerText.toLowerCase();
+                const specialization = row.cells[1].innerText.toLowerCase();
+                if (name.includes(query) || specialization.includes(query)) {
+                    row.style.display = "";
+                } else {
+                    row.style.display = "none";
+                }
+            });
+        }
+
+        // Function to load user data from URL params
+        function loadUserData() {
+            const urlParams = new URLSearchParams(window.location.search);
+
+            const fullName = urlParams.get('fullName');
+            const dob = urlParams.get('dob');
+            const gender = urlParams.get('gender');
+            const contactNumber = urlParams.get('contactNumber');
+            const address = urlParams.get('address');
+
+            // Set the values in the HTML
+            document.getElementById('fullName').textContent = fullName ? fullName : 'Not provided';
+            document.getElementById('dob').textContent = dob ? dob : 'Not provided';
+            document.getElementById('gender').textContent = gender ? gender : 'Not provided';
+            document.getElementById('contactNumber').textContent = contactNumber ? contactNumber : 'Not provided';
+            document.getElementById('address').textContent = address ? address : 'Not provided';
+        }
+
+        // Load user data on page load
+        window.onload = loadUserData;
+    </script>
+
+</body>
+
+</html>
