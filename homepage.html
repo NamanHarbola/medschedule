@@ -218,6 +218,18 @@
             <p><strong>Contact Number:</strong> <span id="contactNumber">Not provided</span></p>
             <p><strong>Address:</strong> <span id="address">Not provided</span></p>
         </div>
+       
+        <div class="section">
+    <h2>Search Diseases by Symptom <i class="fas fa-disease"></i></h2>
+    <div class="search-bar">
+        <input type="text" id="symptomSearch" placeholder="Enter a symptom (e.g., fever, rash)" />
+        <button onclick="searchDiseases()">Search</button>
+    </div>
+    <div id="disease-results">
+        <!-- Disease results will appear here -->
+    </div>
+</div>
+
 
         <!-- Doctor Search Section -->
         <div class="section">
@@ -326,8 +338,46 @@
             </table>
         </div>
     </div>
+   
+
 
     <script>
+    // Sample data for symptom-to-disease mapping
+const symptomDiseaseMapping = {
+    fever: ["Flu", "Malaria", "Dengue", "Typhoid"],
+    cough: ["Common Viral", "Bronchitis", "Pneumonia", "Tuberculosis"],
+    rash: ["Allergic Reaction", "Eczema", "Psoriasis", "Chickenpox"],
+    headache: ["Migraine", "Tension Headache", "Sinusitis", "Brain Tumor"],
+    fatigue: ["Anemia", "Diabetes", "Hypothyroidism", "Chronic Fatigue Syndrome"],
+    chestpain: ["Angina", "Heart Attack", "Pulmonary Embolism", "Pneumothorax"],
+    abdominalpain: ["Appendicitis", "Gallstones", "Irritable Bowel Syndrome (IBS)", "Gastritis"],
+    shortnessofbreath: ["Asthma", "COPD", "Pneumonia", "Pulmonary Edema"],
+    dizziness: ["Vertigo", "Dehydration", "Low Blood Pressure", "Stroke"],
+    backpain: ["Muscle Strain", "Herniated Disc", "Kidney Stones", "Arthritis"],
+    nausea: ["Gastroenteritis", "Food Poisoning", "Pregnancy", "Motion Sickness"],
+    jointpain: ["Arthritis", "Gout", "Lupus", "Infectious Arthritis"],
+    sorethroat: ["Common Cold", "Strep Throat", "Tonsillitis", "Mononucleosis"],
+    swollenlymphnodes: ["Infection", "Lymphoma", "Leukemia", "HIV/AIDS"],
+    weightloss: ["Cancer", "Hyperthyroidism", "Diabetes", "Celiac Disease"]
+   
+};
+
+// Function to search diseases by symptom
+function searchDiseases() {
+    const symptomInput = document.getElementById("symptomSearch").value.toLowerCase();
+    const diseases = symptomDiseaseMapping[symptomInput];
+
+    const resultsContainer = document.getElementById("disease-results");
+    if (diseases && diseases.length > 0) {
+        resultsContainer.innerHTML = `
+            <h3>Diseases related to "${symptomInput}":</h3>
+            <ul>${diseases.map(disease => `<li>${disease}</li>`).join("")}</ul>
+        `;
+    } else {
+        resultsContainer.innerHTML = `<p class="no-data">No diseases found for the symptom "${symptomInput}".</p>`;
+    }
+}
+
         // Sample data for doctors
         const doctors = [
             { name: "Dr. Rajiva Gupta", specialization: "Physician", symptoms: ["cough","cold","nausia","fever","fatigueness"], area: "Dlf Phase IV Gurgaon" },
