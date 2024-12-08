@@ -5,8 +5,6 @@ document.getElementById("loginForm").addEventListener("submit", function (event)
     const password = document.getElementById("password").value.trim();
     const usernameError = document.getElementById("usernameError");
     const passwordError = document.getElementById("passwordError");
-
-    // Clear previous errors
     usernameError.style.display = "none";
     passwordError.style.display = "none";
 
@@ -24,24 +22,22 @@ document.getElementById("loginForm").addEventListener("submit", function (event)
 
     if (!isValid) return;
 
-    // Check user credentials from localStorage
     const users = JSON.parse(localStorage.getItem("users")) || [];
     const user = users.find(u => u.username === username && u.password === password);
 
     if (user) {
         alert("Login successful!");
-        window.location.href = "form.html"; // Redirect to homepage
+        window.location.href = "form.html"; 
     } else {
         alert("Invalid username or password.");
     }
 });
 
-// Redirection Links
 document.getElementById("signupLink").addEventListener("click", () => {
-    window.location.href = "signup.html"; // Redirect to signup page
+    window.location.href = "signup.html"; 
 });
 
 document.getElementById("homeLink").addEventListener("click", () => {
-    window.location.href = "index.html"; // Redirect to home page
+    window.location.href = "index.html"; 
 });
 
