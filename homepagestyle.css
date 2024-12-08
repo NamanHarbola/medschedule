@@ -1,185 +1,54 @@
 body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f4f6f8;
-            margin: 0;
-            padding: 0;
-        }
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f6f8;
+    margin: 0;
+    padding: 0;
+}
 
-        header {
-            background-color: #2b6777;
-            color: white;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            position: relative;
-        }
+header {
+    background-color: #2b6777;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
 
-        header::before {
-            content: "🩺";
-            font-size: 4rem;
-            position: absolute;
-            left: 50%;
-            top: 65%;
-            transform: translate(-50%, -50%);
-            color: rgba(255, 255, 255, 0.3);
-        }
+header::before {
+    content: "🩺";
+    font-size: 4rem;
+    position: absolute;
+    left: 50%;
+    top: 65%;
+    transform: translate(-50%, -50%);
+    color: rgba(255, 255, 255, 0.3);
+}
 
-        nav {
-            background-color: #4b7c8c;
-            padding: 12px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
+nav {
+    background-color: #4b7c8c;
+    padding: 12px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
 
-        nav h3 {
-            color: white;
-            font-weight: 600;
-        }
+nav h3 {
+    color: white;
+    font-weight: 600;
+}
 
-        nav .logout-btn {
-            background-color: #c0392b;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 50px;
-            cursor: pointer;
-            text-decoration: none;
-            transition: background-color 0.3s ease;
-        }
+nav .logout-btn {
+    background-color: #c0392b;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
 
-        nav .logout-btn:hover {
-            background-color: #a93226;
-        }
+nav .logout-btn:hover {
+    background-color: #a93226;
+}
 
-        .container {
-            padding: 30px;
-        }
-
-        .section {
-            background-color: white;
-            padding: 25px;
-            margin-bottom: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .section:hover {
-            transform: translateY(-5px);
-        }
-
-        .section h2 {
-            color: #2b6777;
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-
-        .section p {
-            font-size: 1rem;
-            color: #555;
-        }
-
-        .section i {
-            margin-right: 10px;
-        }
-
-        .search-bar {
-            margin-bottom: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .search-bar input {
-            padding: 12px 20px;
-            font-size: 1rem;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            width: 85%;
-            transition: border-color 0.3s ease;
-        }
-
-        .search-bar input:focus {
-            border-color: #4b7c8c;
-            outline: none;
-        }
-
-        .search-bar button {
-            padding: 12px 20px;
-            background-color: #4b7c8c;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .search-bar button:hover {
-            background-color: #3a6c7d;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-
-        table th,
-        table td {
-            padding: 12px;
-            border: 1px solid #ccc;
-            text-align: left;
-            font-size: 1rem;
-        }
-
-        table th {
-            background-color: #f4f6f8;
-            font-weight: 600;
-        }
-
-        .no-data {
-            text-align: center;
-            color: #888;
-            font-style: italic;
-        }
-
-        /* Graphics for doctors */
-        .doctor-emoji {
-            font-size: 2rem;
-            margin-right: 10px;
-        }
-
-        .doctor-emoji-1 {
-            color: #e74c3c;
-        }
-
-        .doctor-emoji-2 {
-            color: #f39c12;
-        }
-
-        .doctor-emoji-3 {
-            color: #2ecc71;
-        }
-
-        .doctor-emoji-4 {
-            color: #3498db;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .search-bar {
-                flex-direction: column;
-            }
-
-            .search-bar input {
-                width: 100%;
-                margin-bottom: 10px;
-            }
-
-            .search-bar button {
-                width: 100%;
-            }
-        }
