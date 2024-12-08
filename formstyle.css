@@ -4,8 +4,6 @@ body {
     padding: 0;
     color: #333;
 }
-
-/* Background video */
 .video-bg {
     position: fixed;
     top: 0;
@@ -15,8 +13,6 @@ body {
     object-fit: cover;
     z-index: -1;
 }
-
-/* Header Section */
 header {
     background: linear-gradient(135deg, #2b6777, #1b4c5c);
     color: white;
@@ -28,8 +24,6 @@ header {
     letter-spacing: 2px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
-
-/* Container Section */
 .container {
     margin: 3% auto;
     max-width: 800px;
