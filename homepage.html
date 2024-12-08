@@ -155,8 +155,6 @@
             color: #888;
             font-style: italic;
         }
-
-        /* Graphics for doctors */
         .doctor-emoji {
             font-size: 2rem;
             margin-right: 10px;
@@ -178,7 +176,6 @@
             color: #3498db;
         }
 
-        /* Responsive Design */
         @media (max-width: 768px) {
             .search-bar {
                 flex-direction: column;
@@ -209,7 +206,6 @@
     </nav>
 
     <div class="container">
-        <!-- Personal Information Section -->
         <div class="section">
             <h2>Personal Information <i class="fas fa-user"></i></h2>
             <p><strong>Full Name:</strong> <span id="fullName">Not provided</span></p>
@@ -226,12 +222,12 @@
         <button onclick="searchDiseases()">Search</button>
     </div>
     <div id="disease-results">
-        <!-- Disease results will appear here -->
+  
     </div>
 </div>
 
 
-        <!-- Doctor Search Section -->
+      
         <div class="section">
             <h2>Search Doctors <i class="fas fa-search"></i></h2>
             <div class="search-bar">
@@ -239,11 +235,10 @@
                 <button onclick="searchDoctors()">Search</button>
             </div>
             <div id="doctor-results">
-                <!-- Results will be displayed here -->
+              
             </div>
         </div>
 
-        <!-- Doctor Details Table -->
         <div class="section">
             <h2>Doctor Details <i class="fas fa-user-md"></i></h2>
             <div class="search-bar">
@@ -342,7 +337,7 @@
 
 
     <script>
-    // Sample data for symptom-to-disease mapping
+  
 const symptomDiseaseMapping = {
     fever: ["Flu", "Malaria", "Dengue", "Typhoid"],
     cough: ["Common Viral", "Bronchitis", "Pneumonia", "Tuberculosis"],
@@ -362,7 +357,7 @@ const symptomDiseaseMapping = {
    
 };
 
-// Function to search diseases by symptom
+
 function searchDiseases() {
     const symptomInput = document.getElementById("symptomSearch").value.toLowerCase();
     const diseases = symptomDiseaseMapping[symptomInput];
@@ -378,7 +373,7 @@ function searchDiseases() {
     }
 }
 
-        // Sample data for doctors
+        
         const doctors = [
             { name: "Dr. Rajiva Gupta", specialization: "Physician", symptoms: ["cough","cold","nausia","fever","fatigueness"], area: "Dlf Phase IV Gurgaon" },
             { name: "Dr. Anil meheta", specialization: "Physician", symptoms: ["cough","cold","nausia","fever","fatigueness"], area: "Cure Well Clinic, Shaikh Sarai" },
@@ -397,7 +392,7 @@ function searchDiseases() {
             { name: "Dr. Aditya Gupta", specialization: "Neurologist", symptoms: ["headache","migrane","sleep disorder","brain tumor","stroke","epilepsy","memory loss"], area: "Yashodha Super Speciality Ghaziabad" },
         ];
 
-        // Function to search doctors by symptoms
+       
         function searchDoctors() {
             const symptom = document.getElementById("symptom").value.toLowerCase();
             const results = doctors.filter(doctor =>
@@ -410,7 +405,7 @@ function searchDiseases() {
                 : "<p class='no-data'>No doctors found for this symptom.</p>";
         }
 
-        // Function to filter the doctor table
+       
         function filterTable() {
             const query = document.getElementById("searchDoctor").value.toLowerCase();
             const rows = document.querySelectorAll("#doctorTable tbody tr");
@@ -426,7 +421,7 @@ function searchDiseases() {
             });
         }
 
-        // Function to load user data from URL params
+       
         function loadUserData() {
             const urlParams = new URLSearchParams(window.location.search);
 
@@ -436,7 +431,7 @@ function searchDiseases() {
             const contactNumber = urlParams.get('contactNumber');
             const address = urlParams.get('address');
 
-            // Set the values in the HTML
+         
             document.getElementById('fullName').textContent = fullName ? fullName : 'Not provided';
             document.getElementById('dob').textContent = dob ? dob : 'Not provided';
             document.getElementById('gender').textContent = gender ? gender : 'Not provided';
@@ -444,7 +439,7 @@ function searchDiseases() {
             document.getElementById('address').textContent = address ? address : 'Not provided';
         }
 
-        // Load user data on page load
+      
         window.onload = loadUserData;
     </script>
 
