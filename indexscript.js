@@ -1,8 +1,7 @@
-// Redirection Links
 document.getElementById('loginBtn').addEventListener('click', () => {
-    window.location.href = 'login.html'; // Redirect to login page
+    window.location.href = 'login.html'; 
 });
 
 document.getElementById('signupBtn').addEventListener('click', () => {
-    window.location.href = 'signup.html'; // Redirect to signup page
+    window.location.href = 'signup.html'; 
 });
