@@ -72,7 +72,7 @@
             width: 100%;
             height: 100%;
             background: rgba(0, 0, 0, 0.5);
-            z-index: 0;  /* Lower z-index to allow buttons to be clickable */
+            z-index: 0;  
         }
 
         .btn:hover {
@@ -86,7 +86,6 @@
             animation: bounce 2s infinite;
         }
 
-        /* Animations */
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -127,7 +126,7 @@
     <div class="container">
         <h1>Welcome to MedSchedule <span class="emoji">👋</span></h1>
         <p>Your Health, Our Priority. 🌟</p>
-        <!-- Redirection Links -->
+      
         <a href="login.html" class="btn" id="loginBtn">Login 🚪</a>
         <a href="signup.html" class="btn" id="signupBtn">Sign Up 🖋️</a>
         <a href="about.html" class="btn">About Us 🏥</a>
@@ -135,11 +134,11 @@
 
     <script>
         document.getElementById('loginBtn').addEventListener('click', () => {
-            window.location.href = 'login.html'; // Redirect to login page
+            window.location.href = 'login.html'; 
         });
 
         document.getElementById('signupBtn').addEventListener('click', () => {
-            window.location.href = 'signup.html'; // Redirect to signup page
+            window.location.href = 'signup.html'; 
         });
     </script>
 
